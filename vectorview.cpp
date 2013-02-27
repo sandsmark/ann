@@ -1,4 +1,4 @@
-#include "ann.h"
+#include "vectorview.h"
 
 #include <QtGui/QLabel>
 #include <QtGui/QMenu>
@@ -7,23 +7,25 @@
 #include <QtGui/QPainter>
 #include <QtCore/QDebug>
 
-LayerView::LayerView()
+VectorView::VectorView()
 {
 }
 
-LayerView::~LayerView()
+VectorView::~VectorView()
 {}
 
-void LayerView::paintEvent(QPaintEvent* )
+void VectorView::paintEvent(QPaintEvent* )
 {
+    qDebug() << m_horRes * m_vertRes << m_layer.innerSize();
     int boxWidth = width() / m_horRes;
     int boxHeight = height() / m_vertRes;
     QPainter painter(this);
     for (int x=0; x<m_horRes; x++) {
         for (int y=0; y<m_vertRes; y++) {
-            int val = abs(m_layer(x*m_horRes + y)) % 23;
-            val = val * 10;
-            QColor col = QColor::fromHsv(val, val, val);
+            int val = m_layer(x*m_horRes + y)*255.0;
+            qDebug() << val;
+//            QColor col = QColor::fromHsv(val, val, val);
+            QColor col(val, val, val);
             painter.setBrush(col);
             painter.drawRect(x*boxWidth, y*boxHeight, boxWidth-1, boxHeight-1);
         }
@@ -32,4 +34,4 @@ void LayerView::paintEvent(QPaintEvent* )
 }
 
 
-#include "ann.moc"
+#include "vectorview.moc"

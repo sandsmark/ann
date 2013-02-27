@@ -1,15 +1,17 @@
 #include <QtGui/QApplication>
 #include <eigen3/Eigen/Geometry>
-#include "ann.h"
+#include "vectorview.h"
+#include "filereader.h"
 
 
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    LayerView foo;
-    foo.setHorizontalRes(9);
-    foo.setVerticalRes(9);
-    foo.setVector(VectorXi::Random(100));
+    VectorView foo;
+    foo.setHorizontalRes(28);
+    foo.setVerticalRes(28);
+    FileReader reader("train.csv");
+    foo.setVector(reader.readExample().inputs/255);
     foo.show();
     return app.exec();
 }
