@@ -6,7 +6,7 @@ include(KDE4Defaults)
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
-set(ann_SRCS vectorview.cpp main.cpp filereader.cpp neuronlayer.cpp neuronnetwork.cpp)
+set(ann_SRCS vectorview.cpp main.cpp filereader.cpp neuronlayer.cpp neuronnetwork.cpp mainwindow.cpp)
 qt4_automoc(${ann_SRCS})
 add_executable(ann ${ann_SRCS})
 target_link_libraries(ann ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY})

@@ -16,7 +16,7 @@ public:
     
     void setHorizontalRes(int num) { m_horRes = num; }
     void setVerticalRes(int num) { m_vertRes = num; }
-    void setVector(const ArrayXf &vector) { m_layer = vector; }
+    void setVector(const ArrayXf &vector);
     
 protected:
     virtual void paintEvent(QPaintEvent*);
@@ -24,6 +24,7 @@ private:
     int m_horRes;
     int m_vertRes;
     ArrayXf m_layer;
+    bool m_hasLayer;
     
 };
 
