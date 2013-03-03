@@ -14,6 +14,7 @@ public:
     FileReader();
     void openFile(QString filename);
     TrainingExample readExample();
+    bool atEnd() { return m_file.atEnd(); }
     
 private:
     QFile m_file;

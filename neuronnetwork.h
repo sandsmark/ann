@@ -7,9 +7,9 @@
 class NeuronNetwork
 {
 public:
-    NeuronNetwork(int inputSize, QList< int > layerSizes);
+    NeuronNetwork(int inputSize, QList<int> layerSizes);
     void setInput(ArrayXf input);
-    const ArrayXf output();
+    const ArrayXf &output();
     void train(ArrayXf expectedOutput);
     
 private:

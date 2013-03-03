@@ -5,6 +5,7 @@
 
 #include "vectorview.h"
 #include "filereader.h"
+#include "neuronnetwork.h"
 
 class MainWindow : public QWidget
 {
@@ -12,13 +13,16 @@ class MainWindow : public QWidget
 
 public:
     explicit MainWindow();
+    virtual ~MainWindow();
 
 private slots:
     void nextPressed();
+    void trainPressed();
     
 private:
     VectorView m_vectorView;
     FileReader m_fileReader;
+    NeuronNetwork *m_network;
 };
 
 #endif//MAINWINDOW_H

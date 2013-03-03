@@ -36,7 +36,7 @@ void VectorView::paintEvent(QPaintEvent* )
 }
 void VectorView::setVector(const ArrayXf& vector)
 {
-    qDebug() << Q_FUNC_INFO << vector.innerSize();
+    //qDebug() << Q_FUNC_INFO << vector.innerSize();
     m_layer = vector;
     m_hasLayer = true;
 }

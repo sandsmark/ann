@@ -6,7 +6,7 @@
 using namespace Eigen;
 
 struct TrainingExample {
-    int expected;
+    ArrayXf expectedOutput;
     ArrayXf inputs;
 };
 

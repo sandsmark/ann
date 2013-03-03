@@ -13,14 +13,20 @@ void FileReader::openFile(QString filename)
     m_file.readLine(); // first line is just header
 }
 
+ArrayXf intToArray(int t)
+{
+    ArrayXf ret = ArrayXf::Zero(10);
+    ret(t) = 1.0f;
+    
+    return ret;
+}
 
 TrainingExample FileReader::readExample()
 {
     QByteArray input = m_file.readLine();
-    qDebug() << input;
     QList<QByteArray> values = input.split(',');
     TrainingExample example;
-    example.expected = QString::fromAscii(values.takeFirst()).toInt();
+    example.expectedOutput = intToArray(QString::fromAscii(values.takeFirst()).toInt());
     int i=0;
     ArrayXf vector(values.size());
     foreach(const QByteArray &value, values) {
